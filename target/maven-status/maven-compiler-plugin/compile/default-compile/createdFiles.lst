@@ -1,0 +1,14 @@
+main/controllers/UserControllers.class
+main/dao/MessageDAO.class
+main/entities/Message.class
+main/Application.class
+main/dto/UserDTO.class
+main/controllers/MessagesControllers.class
+main/dto/CommonDTO.class
+main/dto/MessageDTO.class
+main/dto/ChatDTO.class
+main/controllers/ChatControllers.class
+main/dao/UserDAO.class
+main/entities/User.class
+main/entities/Chat.class
+main/dao/ChatDAO.class
