@@ -1,15 +1,23 @@
 package main.entities;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "Message")
 public class Message {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "message_id")
     private Long id;
 
     private String message;
 
     private Date createDate;
 
+    @ManyToOne
+    @JoinColumn(name = "chat_id")
     private User author;
 
     public Long getId() {

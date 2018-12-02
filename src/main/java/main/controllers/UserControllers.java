@@ -20,18 +20,28 @@ public class UserControllers {
 
     @PostMapping("/add/user")
     private CommonDTO addUser(@RequestBody UserDTO newUser) {
-        UserDTO u = new UserDTO();
-        u.setId(newUser.getId() + 1);
-        u.setName(newUser.getName());
-        u.setFirstName(newUser.getFirstName());
-        u.setCreateDate(new Date());
-        CommonDTO<UserDTO> response = new CommonDTO(HttpStatus.OK.value(), u);
+        User user = new User(newUser.getName(), newUser.getFirstName());
+        StringBuilder responseMessage = new StringBuilder();
+        try {
+            userDao.addNewUser(user);
+        } catch (Exception e) {
+            responseMessage.append(e.toString());
+            return new CommonDTO(HttpStatus.INTERNAL_SERVER_ERROR.value(), responseMessage.toString());
+        }
+        responseMessage.append("User added");
+        CommonDTO<String> response = new CommonDTO(HttpStatus.OK.value(), responseMessage.toString());
         return response;
     }
 
     @GetMapping("/user/{userId}")
-    private CommonDTO getUserInfo() {
-        CommonDTO response = new CommonDTO(HttpStatus.OK.value(), null);
+    private CommonDTO getUserInfo(@PathVariable("userId") Long userId) {
+        User user = userDao.getUserInfo(userId);
+        CommonDTO<UserDTO> response = new CommonDTO(HttpStatus.OK.value(), new UserDTO(
+                new Long(user.getId()),
+                user.getName(),
+                user.getFirstName(),
+                user.getDate()
+        ));
         return response;
     }
 }

@@ -1,5 +1,6 @@
 main/controllers/UserControllers.class
 main/dao/MessageDAO.class
+main/utils/HibernateSessionFactoryUtil.class
 main/entities/Message.class
 main/Application.class
 main/dto/UserDTO.class

@@ -1,16 +1,34 @@
 package main.entities;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "OurUser")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "our_user_id")
     private Long id;
 
     private String name;
 
+    @Column(name = "fisrt_name")
     private String firstName;
 
+    @Column(name = "create_date")
     private Date createDate;
+
+    public User() {
+
+    }
+
+    public User(String name, String firstName) {
+        this.name = name;
+        this.firstName = firstName;
+        createDate = new Date();
+    }
 
     public Long getId() {
         return id;

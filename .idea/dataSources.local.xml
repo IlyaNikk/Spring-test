@@ -4,8 +4,8 @@
     <data-source name="PostgreSQL - ilya2@localhost" uuid="bcfb4696-a800-4914-bd41-0d2fb745ea8a">
       <secret-storage>master_key</secret-storage>
       <user-name>ilya2</user-name>
-      <introspection-scope>ilya2:public,pg_catalog,ilya2</introspection-scope>
-      <resolve-scope>ilya2:public,ilya2</resolve-scope>
+      <introspection-scope>ilya2:ilya2,pg_catalog,public</introspection-scope>
+      <resolve-scope>ilya2:ilya2,public</resolve-scope>
     </data-source>
   </component>
 </project>
