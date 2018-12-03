@@ -9,6 +9,8 @@ public class ChatDTO {
 
     private Long id;
 
+    private Long creatorId;
+
     private User creator;
 
     private ArrayList<User> user;
@@ -17,8 +19,19 @@ public class ChatDTO {
 
     private Date createDate;
 
+    public ChatDTO(Long id, User creator, String title, Date createDate){
+        this.id = id;
+        this.creator = creator;
+        this.title = title;
+        this.createDate = createDate;
+    }
+
     public Long getId() {
         return id;
+    }
+
+    public Long getCreatorId() {
+        return creatorId;
     }
 
     public User getCreator() {
@@ -55,5 +68,9 @@ public class ChatDTO {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public void setCreatorId(Long creatorId) {
+        this.creatorId = creatorId;
     }
 }

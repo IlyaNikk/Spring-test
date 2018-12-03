@@ -1,5 +1,6 @@
 package main.entities;
 
+import javax.persistence.*;
 import java.util.Date;
 
 public class User {
@@ -11,6 +12,16 @@ public class User {
     private String firstName;
 
     private Date createDate;
+
+    public User() {
+
+    }
+
+    public User(String name, String firstName) {
+        this.name = name;
+        this.firstName = firstName;
+        createDate = new Date();
+    }
 
     public Long getId() {
         return id;

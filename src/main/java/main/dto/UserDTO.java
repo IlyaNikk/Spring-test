@@ -12,6 +12,13 @@ public class UserDTO {
 
     private Date createDate;
 
+    public UserDTO(Long id, String name, String firstName, Date createDate) {
+        this.id = id;
+        this.name = name;
+        this.firstName = firstName;
+        this.createDate = createDate;
+    }
+
     public Long getId() {
         return id;
     }

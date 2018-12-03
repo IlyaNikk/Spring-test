@@ -1,6 +1,9 @@
 package main.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.*;
 
 public class Chat {
 
@@ -8,11 +11,19 @@ public class Chat {
 
     private User creator;
 
-    private User user;
+    private List<User> user;
 
     private String title;
 
     private Date createDate;
+
+    public Chat(){}
+
+    public Chat(String title, User creator) {
+        this.title = title;
+        this.creator = creator;
+        this.createDate = new Date();
+    }
 
     public Long getId() {
         return id;
@@ -22,7 +33,7 @@ public class Chat {
         return creator;
     }
 
-    public User getUser() {
+    public List<User> getUser() {
         return user;
     }
 
@@ -42,7 +53,7 @@ public class Chat {
         this.creator = creator;
     }
 
-    public void setUser(User user) {
+    public void setUser(ArrayList<User> user) {
         this.user = user;
     }
 
